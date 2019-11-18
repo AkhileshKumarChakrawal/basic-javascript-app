@@ -1,6 +1,9 @@
 
+// variables for storing pattern
 var letter = /[a-zA-Z]/;
 var number = /[0-9]/;
+var letters = /^[A-Za-z]+$/;
+
 //storing field data into variables
 var firstName = document.myform.fname;
 var lastName = document.myform.lname;
@@ -8,8 +11,8 @@ var dob = document.myform.dob;
 var email = document.myform.email;
 var password = document.myform.pass;
 var repass = document.myform.repass;
-//var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z_\-\.])+\.([A-Za-z]{2,4})$/;
-var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z_\-\.])+\.([A-Za-z]{2,4})$/;
+//var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
 //storing error message id into variables
 var p1 = document.getElementById("p1");
@@ -30,7 +33,7 @@ password.addEventListener("keyup", pVerify ,true);
 //validation function
 function validateform(){
 
-// Storing the value above into sessionStorage
+// Storing the value  into sessionStorage as a key value pair
     sessionStorage.setItem("firstName", firstName.value);
     sessionStorage.setItem("lastName", lastName.value);
     sessionStorage.setItem("dob", dob.value);
@@ -38,7 +41,7 @@ function validateform(){
     //sessionStorage.setItem("password", password.value);
 
 
-    if(firstName.value == "" || lastName.value =="" || dob.value == "" || email.value =="" || password.value =="" || repass.value == ""){
+   /* if(firstName.value == "" || lastName.value =="" || dob.value == "" || email.value =="" || password.value =="" || repass.value == ""){
         p1.innerHTML = "* this field is manadatory";
         p2.innerHTML = "* this field is manadatory";
         p3.innerHTML = "* this field is manadatory";
@@ -46,8 +49,31 @@ function validateform(){
         p5.innerHTML = "* this field is manadatory";
         p6.innerHTML = "* this field is manadatory";
         return false;
-    }
+    }*/
 
+    if(firstName.value == ""){
+        //document.getElementById("f1").style.outlineColor = "red";
+        p1.innerHTML = "* this field is manadatory";
+        return false;
+    }
+    if(lastName.value == ""){
+        p2.innerHTML = "* this field is manadatory";
+        return false;
+    }
+    if(dob.value == ""){
+        p3.innerHTML = "* this field is manadatory";
+        return false;
+    } if(email.value == ""){
+        p4.innerHTML = "* this field is manadatory";
+        return false;
+    } if(password.value == ""){
+        p5.innerHTML = "* this field is manadatory";
+        return false;
+    }
+    if(repass.value == ""){
+        p1.innerHTML = "* this field is manadatory";
+        return false;
+    }
     if(password.value == repass.value){
         return true;
     }
@@ -60,26 +86,27 @@ function validateform(){
 
 // below functions are eventListener functions
 function nameVerify() {
-
-    if(!isNaN(firstName.value)){
-        p1.innerHTML = "* this field requied character";
+    if(!firstName.value.match(letters)){
+        p1.innerText = "* this field requied character";
         return false;
     }
-    else if(firstName.value != ""){
+     if(firstName.value != ""){
+       // firstName.style.outlineColor = "red";
         p1.innerHTML="";
+
         return true;
     }
 }
 function lVerify(){
-    if(lastName.value == ""){
-        p2.innerHTML = "* this field is manadatory";
-        return false;
-    }
-    else if(!isNaN(lastName.value)){
+    /* if(!isNaN(lastName.value)){
         p2.innerHTML = "* this field requied character";
         return false;
+    }*/
+    if(!lastName.value.match(letters)){
+        p2.innerText = "* this field requied character";
+        return false;
     }
-    else if(lastName.value != ""){
+     if(lastName.value != ""){
         p2.innerHTML="";
         return true;
     }
@@ -109,9 +136,6 @@ function pVerify(){
         p5.innerHTML = "* this field is manadatory";
         return false;
     }
-   /* if(password.value.match(/[a-z]/g) && password.value.match(/[A-Z]/g) && password.value.match(/[0-9]/g) && password.value.match(/[^a-zA-Z\d]/g)){
-        return true;
-    }*/
     if (password.value.length < 4 || !letter.test(password.value) || !number.test(password.value)) {
         p5.innerHTML = "* password should be at least  <br/>1 lowercase character<br>1 uppercase character<br>1 digit and<br>minimum 6 characters ";
         return false;
@@ -121,13 +145,7 @@ function pVerify(){
         return true;
     }
 }
-
 function repVerify(){
-    if (password.value.length < 4 || !letter.test(password.value) || !number.test(password.value)) {
-        p5.innerHTML = "* password should be at least  <br/>1 lowercase character<br>1 uppercase character<br>1 digit and<br>minimum 6 characters ";
-        return false;
-    }
-
     if(repass.value != ""){
         p6.innerHTML="";
         return true;
