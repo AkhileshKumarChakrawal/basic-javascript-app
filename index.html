@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+<h1 style="color: gray">Registration Page</h1>
+<form name="myform" onsubmit="return validateform()" action="confirm.html" autocomplete="off" method="post">
+    <table>
+        <tr>
+            <td>
+                <input type="text" name="fname" placeholder="first name.."  id="f1">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span id="p1" style="color:red; font-size:12px"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="lname" placeholder="last name.." class="check">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span id="p2" style="color:red; font-size:12px"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="date" name="dob" placeholder="date of birth.." class="check">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span id="p3" style="color:red; font-size:12px"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="email" placeholder="email.." class="check">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span id="p4" style="color:red; font-size:12px"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="password" name="pass" placeholder="password.." class="check">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span id="p5" style="color:red; font-size:12px"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="password" name="repass" placeholder="confirm password.." class="check">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span id="p6" style="color:red; font-size:12px"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" name = "sub" value="submit" >
+            </td>
+           <!-- <td>
+                <input type="reset" name = "res" value="reset" >
+            </td>-->
+        </tr>
+    </table>
+</form>
+
+
+<script type="text/javascript" src="validation.js"> </script>
+</body>
+</html>
+
