@@ -41,19 +41,13 @@ function validateform(){
     //sessionStorage.setItem("password", password.value);
 
 
-   /* if(firstName.value == "" || lastName.value =="" || dob.value == "" || email.value =="" || password.value =="" || repass.value == ""){
+    if(firstName.value == "") {
         p1.innerHTML = "* this field is manadatory";
         p2.innerHTML = "* this field is manadatory";
         p3.innerHTML = "* this field is manadatory";
         p4.innerHTML = "* this field is manadatory";
         p5.innerHTML = "* this field is manadatory";
         p6.innerHTML = "* this field is manadatory";
-        return false;
-    }*/
-
-    if(firstName.value == ""){
-        //document.getElementById("f1").style.outlineColor = "red";
-        p1.innerHTML = "* this field is manadatory";
         return false;
     }
     if(lastName.value == ""){
