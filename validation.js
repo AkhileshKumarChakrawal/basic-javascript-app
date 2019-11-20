@@ -33,14 +33,6 @@ password.addEventListener("keyup", pVerify ,true);
 //validation function
 function validateform(){
 
-// Storing the value  into sessionStorage as a key value pair
-    sessionStorage.setItem("firstName", firstName.value);
-    sessionStorage.setItem("lastName", lastName.value);
-    sessionStorage.setItem("dob", dob.value);
-    sessionStorage.setItem("email", email.value);
-    //sessionStorage.setItem("password", password.value);
-
-
     if(firstName.value == "") {
         p1.innerHTML = "* this field is manadatory";
         p2.innerHTML = "* this field is manadatory";

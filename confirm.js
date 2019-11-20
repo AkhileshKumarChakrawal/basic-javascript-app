@@ -1,18 +1,18 @@
 
-function init(){
-    //storing values from sessionStorage
-    var fname =sessionStorage.getItem("firstName");
-    var lname =sessionStorage.getItem("lastName");
-    var dob =sessionStorage.getItem("dob");
-    var emails =sessionStorage.getItem("email");
-    //  var pwd =sessionStorage.getItem("password");
-    //var fname =sessionStorage.getItem("firstName");
-
-    //adding sessionstorage data into table by using td's id
-    document.getElementById('t1').innerText = fname;
-    document.getElementById('t2').innerText = lname;
-    document.getElementById('t3').innerText = dob;
-    document.getElementById('t4').innerText = emails;
-    //document.getElementById('t5').innerText = pwd;
+var urldata = window.location.href;
+var splitdata = urldata.split('?');
+//console.log(splitdata[1]);
+var splitagain = splitdata[1].split('&');
+//  console.log(splitagain);
+var id = 1;
+for (var i = 0; i < splitagain.length - 3; i++) {
+    var data = splitagain[i].split('=');
+    console.log(data[1]);
+    var datavalue = data[1];
+    if(datavalue.includes('%40')){
+        datavalue =  datavalue.replace('%40','@');
+    }
+    document.getElementById(id).innerText = datavalue;
+    id++;
 
 }
