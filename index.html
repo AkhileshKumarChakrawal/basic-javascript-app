@@ -2,9 +2,15 @@
 <html>
 <head>
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
+<div class="container-fluids">
 <h1 style="color: gray">Registration Page</h1>
 <form name="myform" onsubmit="return validateform()" action="confirm.html" autocomplete="off" method="get">
     <table>
@@ -73,7 +79,11 @@
 
         <tr>
             <td>
-                <input type="submit" name = "sub" value="submit" >
+
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <input type="submit" class="btn btn-outline-secondary" name = "sub" value="submit" >
+                    <input type="reset" class="btn btn-outline-secondary" name = "sres" value="reset" >
+                </div>
             </td>
            <!-- <td>
                 <input type="reset" name = "res" value="reset" >
@@ -81,7 +91,7 @@
         </tr>
     </table>
 </form>
-
+</div>
 
 <script type="text/javascript" src="validation.js"> </script>
 </body>
